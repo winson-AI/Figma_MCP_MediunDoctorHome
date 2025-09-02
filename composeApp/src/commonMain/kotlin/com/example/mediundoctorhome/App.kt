@@ -21,6 +21,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -33,10 +34,10 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 import mediundoctorhome.composeapp.generated.resources.Res
-import mediundoctorhome.composeapp.generated.resources.compose_multiplatform
 import mediundoctorhome.composeapp.generated.resources.ic_arrow_right
 import mediundoctorhome.composeapp.generated.resources.ic_calendar
 import mediundoctorhome.composeapp.generated.resources.ic_clock
+import mediundoctorhome.composeapp.generated.resources.ic_clock_color
 import mediundoctorhome.composeapp.generated.resources.ic_search
 import mediundoctorhome.composeapp.generated.resources.ic_location
 import mediundoctorhome.composeapp.generated.resources.ic_home_filled
@@ -271,20 +272,20 @@ private fun NearDoctorSection() {
             subtitle = "Dental Specialist",
             distanceText = "1.2 KM",
             avatar = Res.drawable.avatar_joseph,
-            trailingPrimary = Pair(Res.drawable.ic_clock, Color(0xFF4894FE)),
-            trailingPrimaryText = "Open at 17.00",
-            trailingSecondary = Pair(Res.drawable.ic_clock, Color(0xFFFEB052)),
-            trailingSecondaryText = "4,8 (120 Reviews)"
+            trailingPrimary = Pair(Res.drawable.ic_clock_color, Color(0xFFFEB052)),
+            trailingPrimaryText = "4,8 (120 Reviews)",
+            trailingSecondary = Pair(Res.drawable.ic_clock_color, Color(0xFF4894FE)),
+            trailingSecondaryText = "Open at 17.00"
         )
         DoctorCard(
             name = "Dr. Imran Syahir",
             subtitle = "General Doctor",
             distanceText = "1.2 KM",
             avatar = Res.drawable.avatar_imran,
-            trailingPrimary = Pair(Res.drawable.ic_clock, Color(0xFF4894FE)),
-            trailingPrimaryText = "Open at 17.00",
-            trailingSecondary = Pair(Res.drawable.ic_clock, Color(0xFFFEB052)),
-            trailingSecondaryText = "4,8 (120 Reviews)"
+            trailingPrimary = Pair(Res.drawable.ic_clock_color, Color(0xFFFEB052)),
+            trailingPrimaryText = "4,8 (120 Reviews)",
+            trailingSecondary = Pair(Res.drawable.ic_clock_color, Color(0xFF4894FE)),
+            trailingSecondaryText = "Open at 17.00"
         )
     }
 }
@@ -354,7 +355,9 @@ private fun DoctorCard(
                 Image(
                     painter = painterResource(trailingPrimary.first),
                     contentDescription = null,
+                    colorFilter = ColorFilter.tint(trailingPrimary.second),
                     modifier = Modifier.size(20.dp)
+
                 )
                 Spacer(modifier = Modifier.width(6.dp))
                 Text(text = trailingPrimaryText, color = trailingPrimary.second, fontSize = 12.sp)
@@ -363,6 +366,7 @@ private fun DoctorCard(
                 Image(
                     painter = painterResource(trailingSecondary.first),
                     contentDescription = null,
+                    colorFilter = ColorFilter.tint(trailingSecondary.second),
                     modifier = Modifier.size(20.dp)
                 )
                 Spacer(modifier = Modifier.width(6.dp))
